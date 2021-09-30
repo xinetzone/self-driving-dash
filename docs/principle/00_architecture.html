@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>项目剖析</title>
+    <title>软件源程序</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -195,7 +195,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     项目剖析
+     软件源程序
     </a>
    </li>
   </ul>
@@ -318,10 +318,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../_sources/docs/principle/00_architecture.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+        
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="../../_sources/docs/principle/00_architecture.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
@@ -359,31 +356,64 @@ commentsRunWhenDOMLoaded(addUtterances);
 
             <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/xinetzone/self-driving-dash/main?urlpath=tree/./docs/principle/00_architecture.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   网页应用的主题
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#layouts">
+   网页应用的布局
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     layouts/
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#options">
+   网页应用的布局参数
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     options/
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callbacks">
+   网页应用的回调
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     callbacks/
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   鸟瞰图
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   工具
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -393,33 +423,34 @@ commentsRunWhenDOMLoaded(addUtterances);
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>项目剖析<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-源码的细节。<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="tabbed-set docutils">
-<input checked="checked" id="9a1b46f3-ecc1-45f2-bbe3-3fd8763e8e52" name="5ae519f3-09c7-4cba-b29d-fb5ab9463ac5" type="radio">
-</input><label class="tabbed-label" for="9a1b46f3-ecc1-45f2-bbe3-3fd8763e8e52">
-app .py</label><div class="tabbed-content docutils">
+<h1>软件源程序<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>项目的主程序：</p>
+<div class="sphinx-bs container pb-4 full-width docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/3f41e546893dc64b71aaacad12cad815/app.py"><code class="xref download docutils literal notranslate"><span class="pre">app.py</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
 <p class="card-text">项目中的 Dash 应用。</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dash_xinet.server</span> <span class="kn">import</span> <span class="n">create_app</span>
 
-<span class="n">external_stylesheets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;https://codepen.io/chriddyp/pen/bWLwgP.css&#39;</span><span class="p">]</span>
-
+<span class="c1"># 创建 Dash App</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span>
-                 <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Sanstyle Dash&#39;</span><span class="p">,</span>
-                 <span class="n">external_stylesheets</span><span class="o">=</span><span class="n">external_stylesheets</span><span class="p">)</span>
+                 <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Sanstyle Dash&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<input id="f34e1c41-d8fd-4787-93e3-503ebe57e9ad" name="5ae519f3-09c7-4cba-b29d-fb5ab9463ac5" type="radio">
-</input><label class="tabbed-label" for="f34e1c41-d8fd-4787-93e3-503ebe57e9ad">
-run .py</label><div class="tabbed-content docutils">
-<p class="card-text">项目中的 Dash 应用主程序。</p>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/6e38f16215ae91c11fc5c54b74c66d54/run.py"><code class="xref download docutils literal notranslate"><span class="pre">run.py</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">项目中的 Dash 应用运行主程序。</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">dcc</span><span class="p">,</span> <span class="n">html</span>
 <span class="kn">from</span> <span class="nn">dash.dependencies</span> <span class="kn">import</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Output</span>
 
@@ -474,24 +505,872 @@ run .py</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="f85fff5a-123d-47be-a1b5-020043c3a972" name="5ae519f3-09c7-4cba-b29d-fb5ab9463ac5" type="radio">
-</input><label class="tabbed-label" for="f85fff5a-123d-47be-a1b5-020043c3a972">
-layouts/</label><div class="tabbed-content docutils">
-<p class="card-text">项目中的 Dash 应用的多页布局。</p>
-</div>
-<input id="13bccab8-b815-4ae9-99c1-6ab8a505dbc9" name="5ae519f3-09c7-4cba-b29d-fb5ab9463ac5" type="radio">
-</input><label class="tabbed-label" for="13bccab8-b815-4ae9-99c1-6ab8a505dbc9">
-apps/</label><div class="tabbed-content docutils">
-<p class="card-text">项目中的 Dash 应用的多页应用。</p>
-</div>
-<input id="5d992e40-aab0-457a-8fda-8df43dd98c30" name="5ae519f3-09c7-4cba-b29d-fb5ab9463ac5" type="radio">
-</input><label class="tabbed-label" for="5d992e40-aab0-457a-8fda-8df43dd98c30">
-utils/</label><div class="tabbed-content docutils">
-<p class="card-text">项目中的 Dash 应用的工具，包括可复用组件。</p>
 </div>
 </div>
 </div>
-</details></section>
+</div>
+<section id="id2">
+<h2>网页应用的主题<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="sphinx-bs container pb-4 full-width docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/f433f16cca78acc55f095dfc46eae628/app.css"><code class="xref download docutils literal notranslate"><span class="pre">assets/app.css</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">网页应用的 <code class="docutils literal notranslate"><span class="pre">app</span></code> CSS 主题。</p>
+<div class="code css highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">app</span><span class="o">-</span><span class="n">button</span> <span class="p">{</span>
+    <span class="nb">list</span><span class="o">-</span><span class="n">style</span><span class="o">-</span><span class="nb">type</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+    <span class="n">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">padding</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">display</span><span class="p">:</span> <span class="n">inline</span><span class="p">;</span>
+    
+<span class="p">}</span>
+
+<span class="o">.</span><span class="n">app</span><span class="o">-</span><span class="n">button</span> <span class="n">a</span> <span class="p">{</span>
+    <span class="n">text</span><span class="o">-</span><span class="n">decoration</span><span class="o">-</span><span class="n">line</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/f0abdbcbfe2f1f5ab43a6f088b8b8790/page.css"><code class="xref download docutils literal notranslate"><span class="pre">assets/page.css</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">网页应用的页面主题。</p>
+<div class="code css highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">body</span> <span class="p">{</span>
+    <span class="n">font</span><span class="o">-</span><span class="n">family</span><span class="p">:</span> <span class="n">cursive</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">h1</span> <span class="p">{</span>
+    <span class="n">color</span><span class="p">:</span> <span class="n">hotpink</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="layouts">
+<h2>网页应用的布局 <code class="docutils literal notranslate"><span class="pre">layouts/</span></code><a class="headerlink" href="#layouts" title="永久链接至标题">¶</a></h2>
+<div class="sphinx-bs container pb-4 full-width docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/0e7f1e5bd5d036b1ef398095a3ae0e38/index.py"><code class="xref download docutils literal notranslate"><span class="pre">layouts/index.py</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">网页应用的主页布局。</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">dcc</span><span class="p">,</span> <span class="n">html</span>
+<span class="kn">from</span> <span class="nn">utils.toml</span> <span class="kn">import</span> <span class="n">load_option</span>
+<span class="kn">from</span> <span class="nn">utils.nav</span> <span class="kn">import</span> <span class="n">page_header</span>
+
+<span class="n">layout_options</span> <span class="o">=</span> <span class="n">load_option</span><span class="p">(</span><span class="s1">&#39;options/index.toml&#39;</span><span class="p">)</span>
+<span class="n">header</span> <span class="o">=</span> <span class="n">page_header</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">layout_options</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+
+<span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Article</span><span class="p">([</span><span class="n">header</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/bfbd0a75dfd4d355d6a219d90a4010d2/about.py"><code class="xref download docutils literal notranslate"><span class="pre">layouts/about.py</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">网页应用的 <code class="docutils literal notranslate"><span class="pre">about</span></code> 布局。</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">dcc</span><span class="p">,</span> <span class="n">html</span>
+<span class="kn">from</span> <span class="nn">utils.toml</span> <span class="kn">import</span> <span class="n">load_option</span>
+<span class="kn">from</span> <span class="nn">utils.nav</span> <span class="kn">import</span> <span class="n">page_header</span>
+<span class="n">layout_options</span> <span class="o">=</span> <span class="n">load_option</span><span class="p">(</span><span class="s1">&#39;options/about.toml&#39;</span><span class="p">)</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="n">page_header</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">layout_options</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+
+<span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Article</span><span class="p">([</span><span class="n">header</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/3f8aeb24911a77d69b155ef8036a4110/record.py"><code class="xref download docutils literal notranslate"><span class="pre">layouts/record.py</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">网页应用的 <code class="docutils literal notranslate"><span class="pre">record</span></code> 布局。</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dash.dash_table</span> <span class="kn">import</span> <span class="n">DataTable</span>
+<span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">dcc</span><span class="p">,</span> <span class="n">html</span>
+
+<span class="kn">from</span> <span class="nn">utils.toml</span> <span class="kn">import</span> <span class="n">load_option</span>
+<span class="kn">from</span> <span class="nn">utils.nav</span> <span class="kn">import</span> <span class="n">page_header</span>
+<span class="kn">from</span> <span class="nn">utils.graph</span> <span class="kn">import</span> <span class="n">create_graph</span>
+
+<span class="n">layout_options</span> <span class="o">=</span> <span class="n">load_option</span><span class="p">(</span><span class="s1">&#39;options/record.toml&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># 与硬件通信</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Aside</span><span class="p">([</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;打开&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;open-devide&#39;</span><span class="p">,</span>
+                <span class="n">n_clicks</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="n">className</span><span class="o">=</span><span class="s1">&#39;w3-pale-green w3-round-xlarge&#39;</span><span class="p">),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s1">&#39;关闭&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;close-devide&#39;</span><span class="p">,</span>
+                <span class="n">n_clicks</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="n">className</span><span class="o">=</span><span class="s1">&#39;w3-pale-green w3-round-xlarge&#39;</span><span class="p">),</span> 
+    <span class="n">dcc</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;live-update-text&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">,</span>
+              <span class="n">readOnly</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s1">&#39;w3-right&#39;</span><span class="p">)</span>
+<span class="p">],</span> <span class="n">className</span><span class="o">=</span><span class="s1">&#39;w3-cell-row w3-pale-blue&#39;</span><span class="p">)</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">create_graph</span><span class="p">(</span><span class="s1">&#39;view-graph&#39;</span><span class="p">,</span> <span class="s1">&#39;feature-graph&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;memory-class&#39;</span><span class="p">,</span> <span class="n">layout_options</span><span class="p">)</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="n">page_header</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">layout_options</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+<span class="n">main</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Main</span><span class="p">([</span><span class="n">dcc</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;memory-frame&#39;</span><span class="p">),</span>  <span class="c1"># 存储每帧数据</span>
+                  <span class="n">dcc</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;memory-output&#39;</span><span class="p">),</span>  <span class="c1"># 输出数据流</span>
+                  <span class="n">dcc</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;memory-frames&#39;</span><span class="p">),</span>  <span class="c1"># 输出筛选后的数据留</span>
+                  <span class="n">dcc</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;interval-frame&#39;</span><span class="p">,</span>  <span class="c1"># 用于数据更新</span>
+                 <span class="n">interval</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+                 <span class="n">n_intervals</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+                  <span class="n">graph</span><span class="p">,</span>
+                  <span class="c1"># 显示数据框</span>
+                  <span class="n">DataTable</span><span class="p">(</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;memory-table&#39;</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">i</span><span class="p">}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">layout_options</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+<span class="p">)])</span>
+
+<span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Article</span><span class="p">([</span><span class="n">header</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">main</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/cdc19a6decd4784d6e1be346d8f5435b/replay.py"><code class="xref download docutils literal notranslate"><span class="pre">layouts/replay.py</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">网页应用的 <code class="docutils literal notranslate"><span class="pre">replay</span></code> 布局。</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">dcc</span><span class="p">,</span> <span class="n">html</span>
+
+<span class="kn">from</span> <span class="nn">utils.nav</span> <span class="kn">import</span> <span class="n">page_header</span>
+<span class="kn">from</span> <span class="nn">utils.toml</span> <span class="kn">import</span> <span class="n">load_option</span>
+<span class="kn">from</span> <span class="nn">utils.stream</span> <span class="kn">import</span> <span class="n">Stream</span>
+<span class="kn">from</span> <span class="nn">utils.graph</span> <span class="kn">import</span> <span class="n">create_graph</span>
+<span class="kn">from</span> <span class="nn">utils.update</span> <span class="kn">import</span> <span class="n">update_frame_layout</span>
+<span class="c1"># 数据</span>
+<span class="n">layout_options</span> <span class="o">=</span> <span class="n">load_option</span><span class="p">(</span><span class="s1">&#39;options/replay.toml&#39;</span><span class="p">)</span>
+
+<span class="n">stream</span> <span class="o">=</span> <span class="n">Stream</span><span class="p">(</span><span class="n">layout_options</span><span class="o">.</span><span class="n">save_path</span><span class="p">)</span>
+
+<span class="n">frame_section</span> <span class="o">=</span> <span class="n">update_frame_layout</span><span class="p">(</span><span class="s1">&#39;replay-frame-slider&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;replay-frame-start&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;replay-frame-end&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;replay-frame-run&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;replay-frame-stop&#39;</span><span class="p">,</span> <span class="n">stream</span><span class="p">)</span>
+<span class="c1"># 布局</span>
+<span class="n">header</span> <span class="o">=</span> <span class="n">page_header</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">layout_options</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">create_graph</span><span class="p">(</span><span class="s1">&#39;replay-view-graph&#39;</span><span class="p">,</span> <span class="s1">&#39;replay-feature-graph&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;replay-memory-class&#39;</span><span class="p">,</span> <span class="n">layout_options</span><span class="p">)</span>
+
+<span class="n">main</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Main</span><span class="p">([</span><span class="n">dcc</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;replay-memory-frame&#39;</span><span class="p">),</span>  <span class="c1"># 存储每帧数据</span>
+                  <span class="n">dcc</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;replay-memory-output&#39;</span><span class="p">),</span>  <span class="c1"># 输出数据流</span>
+                  <span class="n">dcc</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;replay-memory-frames&#39;</span><span class="p">),</span>  <span class="c1"># 输出筛选后的数据留</span>
+                  <span class="n">dcc</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;replay-interval-frame&#39;</span><span class="p">,</span>  <span class="c1"># 用于数据更新</span>
+                 <span class="n">interval</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+                 <span class="n">n_intervals</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+                 <span class="n">graph</span><span class="p">,</span>
+                 <span class="n">frame_section</span>
+                  <span class="p">])</span>
+
+<span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Article</span><span class="p">([</span><span class="n">header</span><span class="p">,</span> <span class="n">main</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/9d551615a623575785c533dd9fd2c41d/watch.py"><code class="xref download docutils literal notranslate"><span class="pre">layouts/watch.py</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">网页应用的 <code class="docutils literal notranslate"><span class="pre">watch</span></code> 布局。</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">dcc</span><span class="p">,</span> <span class="n">html</span>
+
+<span class="kn">from</span> <span class="nn">utils.nav</span> <span class="kn">import</span> <span class="n">page_header</span>
+<span class="kn">from</span> <span class="nn">utils.toml</span> <span class="kn">import</span> <span class="n">load_option</span>
+<span class="kn">from</span> <span class="nn">utils.stream</span> <span class="kn">import</span> <span class="n">Stream</span>
+<span class="kn">from</span> <span class="nn">utils.graph</span> <span class="kn">import</span> <span class="n">create_graph</span>
+<span class="kn">from</span> <span class="nn">utils.update</span> <span class="kn">import</span> <span class="n">update_frame_layout</span>
+<span class="c1"># 数据</span>
+<span class="n">layout_options</span> <span class="o">=</span> <span class="n">load_option</span><span class="p">(</span><span class="s1">&#39;options/watch.toml&#39;</span><span class="p">)</span>
+
+<span class="n">stream</span> <span class="o">=</span> <span class="n">Stream</span><span class="p">(</span><span class="n">layout_options</span><span class="o">.</span><span class="n">save_path</span><span class="p">)</span>
+
+<span class="n">frame_section</span> <span class="o">=</span> <span class="n">update_frame_layout</span><span class="p">(</span><span class="s1">&#39;frame-slider&#39;</span><span class="p">,</span> <span class="s1">&#39;frame-start&#39;</span><span class="p">,</span> <span class="s1">&#39;frame-end&#39;</span><span class="p">,</span> <span class="s1">&#39;frame-run&#39;</span><span class="p">,</span> <span class="s1">&#39;frame-stop&#39;</span><span class="p">,</span> <span class="n">stream</span><span class="p">)</span>
+<span class="c1"># 布局</span>
+<span class="n">header</span> <span class="o">=</span> <span class="n">page_header</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">layout_options</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">create_graph</span><span class="p">(</span><span class="s1">&#39;watch-view-graph&#39;</span><span class="p">,</span> <span class="s1">&#39;watch-feature-graph&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;watch-memory-class&#39;</span><span class="p">,</span> <span class="n">layout_options</span><span class="p">)</span>
+
+<span class="n">main</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Main</span><span class="p">([</span><span class="n">dcc</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;watch-memory-frame&#39;</span><span class="p">),</span>  <span class="c1"># 存储每帧数据</span>
+                  <span class="n">dcc</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;watch-memory-output&#39;</span><span class="p">),</span>  <span class="c1"># 输出数据流</span>
+                  <span class="n">dcc</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;watch-memory-frames&#39;</span><span class="p">),</span>  <span class="c1"># 输出筛选后的数据留</span>
+                  <span class="n">dcc</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;watch-interval-frame&#39;</span><span class="p">,</span>  <span class="c1"># 用于数据更新</span>
+                 <span class="n">interval</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+                 <span class="n">n_intervals</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+                 <span class="n">graph</span><span class="p">,</span>
+                 <span class="n">frame_section</span>
+                  <span class="p">])</span>
+
+<span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Article</span><span class="p">([</span><span class="n">header</span><span class="p">,</span> <span class="n">main</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="options">
+<h2>网页应用的布局参数 <code class="docutils literal notranslate"><span class="pre">options/</span></code><a class="headerlink" href="#options" title="永久链接至标题">¶</a></h2>
+<div class="sphinx-bs container pb-4 full-width docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/4e0e5ad1421518e588df54f4f7789e8e/index.toml"><code class="xref download docutils literal notranslate"><span class="pre">options/index.toml</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">网页应用的主页布局参数。</p>
+<div class="code toml highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">class_names</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;AEB&quot;</span><span class="p">,</span> <span class="s2">&quot;CIPV&quot;</span><span class="p">,</span> <span class="s2">&quot;ACC&quot;</span><span class="p">,</span> <span class="s2">&quot;MCP&quot;</span><span class="p">,]</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;frame_id&quot;</span><span class="p">,</span> <span class="s2">&quot;track_id&quot;</span><span class="p">,</span> <span class="s2">&quot;origin&quot;</span><span class="p">,</span> <span class="s2">&quot;class_name&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;v_x&quot;</span><span class="p">,</span> <span class="s2">&quot;v_y&quot;</span><span class="p">,</span> <span class="s2">&quot;a_x&quot;</span><span class="p">,</span> <span class="s2">&quot;a_y&quot;</span><span class="p">,]</span>
+<span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;无人驾驶&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/38887f0e3a6947624eb1104da706c805/about.toml"><code class="xref download docutils literal notranslate"><span class="pre">options/about.toml</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">网页应用的 <code class="docutils literal notranslate"><span class="pre">about</span></code> 布局参数。</p>
+<div class="code toml highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">class_names</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;AEB&quot;</span><span class="p">,</span> <span class="s2">&quot;CIPV&quot;</span><span class="p">,</span> <span class="s2">&quot;ACC&quot;</span><span class="p">,</span> <span class="s2">&quot;MCP&quot;</span><span class="p">,]</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;frame_id&quot;</span><span class="p">,</span> <span class="s2">&quot;track_id&quot;</span><span class="p">,</span> <span class="s2">&quot;origin&quot;</span><span class="p">,</span> <span class="s2">&quot;class_name&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;v_x&quot;</span><span class="p">,</span> <span class="s2">&quot;v_y&quot;</span><span class="p">,</span> <span class="s2">&quot;a_x&quot;</span><span class="p">,</span> <span class="s2">&quot;a_y&quot;</span><span class="p">,]</span>
+<span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;APG UI&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/cd488db1747a90217725bb870112c576/record.toml"><code class="xref download docutils literal notranslate"><span class="pre">options/record.toml</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">网页应用的 <code class="docutils literal notranslate"><span class="pre">record</span></code> 布局参数。</p>
+<div class="code toml highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">save_path</span> <span class="o">=</span> <span class="s2">&quot;../out.h5&quot;</span>
+<span class="n">class_names</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;AEB&quot;</span><span class="p">,</span> <span class="s2">&quot;CIPV&quot;</span><span class="p">,</span> <span class="s2">&quot;ACC&quot;</span><span class="p">,</span> <span class="s2">&quot;MCP&quot;</span><span class="p">,]</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;frame_id&quot;</span><span class="p">,</span> <span class="s2">&quot;track_id&quot;</span><span class="p">,</span> <span class="s2">&quot;origin&quot;</span><span class="p">,</span> <span class="s2">&quot;class_name&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;v_x&quot;</span><span class="p">,</span> <span class="s2">&quot;v_y&quot;</span><span class="p">,</span> <span class="s2">&quot;a_x&quot;</span><span class="p">,</span> <span class="s2">&quot;a_y&quot;</span><span class="p">,]</span>
+<span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Dash UI&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/73f6ef48df9c1f84689a9865e0959dea/replay.toml"><code class="xref download docutils literal notranslate"><span class="pre">options/replay.toml</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">网页应用的 <code class="docutils literal notranslate"><span class="pre">replay</span></code> 布局参数。</p>
+<div class="code toml highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">save_path</span> <span class="o">=</span> <span class="s2">&quot;../out3.h5&quot;</span>
+<span class="n">class_names</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;AEB&quot;</span><span class="p">,</span> <span class="s2">&quot;CIPV&quot;</span><span class="p">,</span> <span class="s2">&quot;ACC&quot;</span><span class="p">,</span> <span class="s2">&quot;MCP&quot;</span><span class="p">,]</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;frame_id&quot;</span><span class="p">,</span> <span class="s2">&quot;track_id&quot;</span><span class="p">,</span> <span class="s2">&quot;origin&quot;</span><span class="p">,</span> <span class="s2">&quot;class_name&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;v_x&quot;</span><span class="p">,</span> <span class="s2">&quot;v_y&quot;</span><span class="p">,</span> <span class="s2">&quot;a_x&quot;</span><span class="p">,</span> <span class="s2">&quot;a_y&quot;</span><span class="p">,]</span>
+<span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;APG UI&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/d20c5ca5649edc7c6bbdf9de7ada3652/watch.toml"><code class="xref download docutils literal notranslate"><span class="pre">options/watch.toml</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">网页应用的 <code class="docutils literal notranslate"><span class="pre">watch</span></code> 布局参数。</p>
+<div class="code toml highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">save_path</span> <span class="o">=</span> <span class="s2">&quot;../out2.h5&quot;</span>
+<span class="n">class_names</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;AEB&quot;</span><span class="p">,</span> <span class="s2">&quot;CIPV&quot;</span><span class="p">,</span> <span class="s2">&quot;ACC&quot;</span><span class="p">,</span> <span class="s2">&quot;MCP&quot;</span><span class="p">,]</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;frame_id&quot;</span><span class="p">,</span> <span class="s2">&quot;track_id&quot;</span><span class="p">,</span> <span class="s2">&quot;origin&quot;</span><span class="p">,</span> <span class="s2">&quot;class_name&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;v_x&quot;</span><span class="p">,</span> <span class="s2">&quot;v_y&quot;</span><span class="p">,</span> <span class="s2">&quot;a_x&quot;</span><span class="p">,</span> <span class="s2">&quot;a_y&quot;</span><span class="p">,]</span>
+<span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;APG UI&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="callbacks">
+<h2>网页应用的回调 <code class="docutils literal notranslate"><span class="pre">callbacks/</span></code><a class="headerlink" href="#callbacks" title="永久链接至标题">¶</a></h2>
+<div class="sphinx-bs container pb-4 full-width docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/7e4719d20ef71e425396a3f01b612898/record.py"><code class="xref download docutils literal notranslate"><span class="pre">callbacks/record.py</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">网页应用的 <code class="docutils literal notranslate"><span class="pre">record</span></code> 回调。</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">dash.dependencies</span> <span class="kn">import</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Output</span>
+<span class="kn">from</span> <span class="nn">dash.exceptions</span> <span class="kn">import</span> <span class="n">PreventUpdate</span>
+
+<span class="kn">from</span> <span class="nn">utils.client</span> <span class="kn">import</span> <span class="n">plot_frame</span><span class="p">,</span> <span class="n">Canvas</span>
+<span class="kn">from</span> <span class="nn">tools.frame</span> <span class="kn">import</span> <span class="n">Shape</span>
+
+<span class="kn">from</span> <span class="nn">utils.client</span> <span class="kn">import</span> <span class="n">frame2pandas</span><span class="p">,</span> <span class="n">simulate_shape</span>
+<span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">app</span>
+<span class="kn">from</span> <span class="nn">layouts.record</span> <span class="kn">import</span> <span class="n">layout_options</span>
+
+<span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;live-update-text&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;interval-frame&#39;</span><span class="p">,</span> <span class="s1">&#39;n_intervals&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">update_metrics</span><span class="p">(</span><span class="n">frame_id</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;⏲计时，更新时间和帧数&#39;&#39;&#39;</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%H:%M:%S&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">now</span><span class="si">}</span><span class="s1"> @ </span><span class="si">{</span><span class="n">frame_id</span><span class="si">}</span><span class="s1">&#39;</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;memory-frame&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span>
+              <span class="n">Output</span><span class="p">(</span><span class="s1">&#39;memory-frames&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;interval-frame&#39;</span><span class="p">,</span> <span class="s1">&#39;n_intervals&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">update_frame</span><span class="p">(</span><span class="n">frame_id</span><span class="p">):</span>
+    <span class="n">choice_class</span> <span class="o">=</span> <span class="n">layout_options</span><span class="o">.</span><span class="n">class_names</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;other&#39;</span><span class="p">]</span>
+    <span class="c1"># shapes = [simulate_shape(frame_id, k, class_name)</span>
+    <span class="c1">#           for k, class_name in enumerate(choice_class)]</span>
+    <span class="n">shapes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">class_name</span> <span class="ow">in</span> <span class="n">choice_class</span><span class="p">:</span>
+            <span class="n">shape</span> <span class="o">=</span> <span class="n">simulate_shape</span><span class="p">(</span><span class="n">frame_id</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">class_name</span><span class="p">)</span>
+            <span class="n">shapes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+            <span class="c1"># print(shape)</span>
+            <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="n">frame</span> <span class="o">=</span> <span class="p">[</span><span class="n">shape</span><span class="o">.</span><span class="n">asdict</span><span class="p">()</span> <span class="k">for</span> <span class="n">shape</span> <span class="ow">in</span> <span class="n">shapes</span><span class="p">]</span>
+    <span class="n">frame</span> <span class="o">=</span> <span class="n">frame2pandas</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">layout_options</span><span class="o">.</span><span class="n">save_path</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;frame_</span><span class="si">{</span><span class="n">frame_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+    <span class="n">frame_dict</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+    <span class="k">global</span> <span class="n">frames</span>
+    <span class="n">frames</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">frame_dict</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">:</span>
+        <span class="n">frames</span> <span class="o">=</span> <span class="n">frames</span><span class="p">[</span><span class="o">-</span><span class="mi">500</span><span class="p">:]</span>
+    <span class="k">return</span> <span class="n">frame_dict</span><span class="p">,</span> <span class="n">frames</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;view-graph&#39;</span><span class="p">,</span> <span class="s1">&#39;figure&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;memory-frame&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">update_view_graph_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;更新鸟瞰图&#39;&#39;&#39;</span>
+    <span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">()</span>
+    <span class="n">shapes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Shape</span><span class="p">(</span><span class="o">**</span><span class="n">shape</span><span class="p">)</span> <span class="k">for</span> <span class="n">shape</span> <span class="ow">in</span> <span class="n">frame</span><span class="p">]</span>
+    <span class="n">shapes</span> <span class="o">=</span> <span class="p">[</span><span class="n">canvas</span><span class="o">.</span><span class="n">to_shape</span><span class="p">(</span><span class="o">*</span><span class="n">shape</span><span class="o">.</span><span class="n">view</span><span class="p">)</span> <span class="k">for</span> <span class="n">shape</span> <span class="ow">in</span> <span class="n">shapes</span><span class="p">]</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">shapes</span><span class="o">=</span><span class="n">shapes</span><span class="p">)</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">update_base</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">canvas</span><span class="o">.</span><span class="n">view</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;memory-output&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;memory-frames&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;memory-class&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">store_frame</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">class_selected</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">frames</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">PreventUpdate</span>
+    <span class="n">filtered</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;class_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">class_selected</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">filtered</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;memory-table&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;memory-output&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">on_data_set_table</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">PreventUpdate</span>
+    <span class="k">return</span> <span class="n">data</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;feature-graph&#39;</span><span class="p">,</span> <span class="s1">&#39;figure&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;memory-output&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">on_data_set_graph</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">PreventUpdate</span>
+    <span class="n">filtered</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plot_frame</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/6b79c27113ca3e6bd4d9657624f24302/replay.py"><code class="xref download docutils literal notranslate"><span class="pre">callbacks/replay.py</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">网页应用的 <code class="docutils literal notranslate"><span class="pre">replay</span></code> 回调。</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">dash.dependencies</span> <span class="kn">import</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Output</span><span class="p">,</span> <span class="n">State</span>
+<span class="kn">from</span> <span class="nn">dash.exceptions</span> <span class="kn">import</span> <span class="n">PreventUpdate</span>
+
+<span class="kn">from</span> <span class="nn">utils.client</span> <span class="kn">import</span> <span class="n">plot_frame</span><span class="p">,</span> <span class="n">Canvas</span>
+<span class="kn">from</span> <span class="nn">tools.frame</span> <span class="kn">import</span> <span class="n">Shape</span>
+
+<span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">app</span>
+<span class="kn">from</span> <span class="nn">layouts.replay</span> <span class="kn">import</span> <span class="n">stream</span>
+
+<span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">frame_id</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+              <span class="n">Output</span><span class="p">(</span><span class="s1">&#39;replay-frame-end&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;replay-interval-frame&#39;</span><span class="p">,</span> <span class="s1">&#39;n_intervals&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;replay-frame-start&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">replay_frame_end</span><span class="p">(</span><span class="n">n_intervals</span><span class="p">,</span> <span class="n">frame_start</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">frame_id</span>
+    <span class="k">if</span> <span class="n">frame_start</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">frame_start</span><span class="o">&gt;</span><span class="n">stream</span><span class="o">.</span><span class="n">max_id</span> <span class="ow">or</span> <span class="n">frame_start</span> <span class="o">&lt;</span> <span class="n">stream</span><span class="o">.</span><span class="n">min_id</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">frame_start</span><span class="o">+</span><span class="n">frame_id</span><span class="o">&gt;</span><span class="n">stream</span><span class="o">.</span><span class="n">max_id</span><span class="p">:</span>
+        <span class="n">frame_id</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">raise</span> <span class="n">PreventUpdate</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">frame_id</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">frame_start</span><span class="o">+</span><span class="n">frame_id</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;replay-memory-frame&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span>
+              <span class="n">Output</span><span class="p">(</span><span class="s1">&#39;replay-memory-frames&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;replay-frame-end&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">replay_frame</span><span class="p">(</span><span class="n">frame_end</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">frame_end</span> <span class="o">&gt;</span> <span class="n">stream</span><span class="o">.</span><span class="n">max_id</span> <span class="ow">or</span> <span class="n">stream</span><span class="o">.</span><span class="n">max_id</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">frame_end</span><span class="o">=</span><span class="mi">0</span>
+        <span class="k">raise</span> <span class="n">PreventUpdate</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">global</span> <span class="n">frames</span><span class="p">,</span> <span class="n">frame_id</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="n">stream</span><span class="p">[</span><span class="n">frame_end</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">PreventUpdate</span>
+        <span class="n">frame_dict</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+        <span class="n">frames</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">frame_dict</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">:</span>
+            <span class="n">frames</span> <span class="o">=</span> <span class="n">frames</span><span class="p">[</span><span class="o">-</span><span class="mi">500</span><span class="p">:]</span>
+        <span class="k">return</span> <span class="n">frame_dict</span><span class="p">,</span> <span class="n">frames</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;replay-view-graph&#39;</span><span class="p">,</span> <span class="s1">&#39;figure&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;replay-memory-frame&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">replay_view_graph_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;更新鸟瞰图&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">PreventUpdate</span>
+    <span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">()</span>
+    <span class="n">shapes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Shape</span><span class="p">(</span><span class="o">**</span><span class="n">shape</span><span class="p">)</span> <span class="k">for</span> <span class="n">shape</span> <span class="ow">in</span> <span class="n">frame</span><span class="p">]</span>
+    <span class="n">shapes</span> <span class="o">=</span> <span class="p">[</span><span class="n">canvas</span><span class="o">.</span><span class="n">to_shape</span><span class="p">(</span><span class="o">*</span><span class="n">shape</span><span class="o">.</span><span class="n">view</span><span class="p">)</span> <span class="k">for</span> <span class="n">shape</span> <span class="ow">in</span> <span class="n">shapes</span><span class="p">]</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">shapes</span><span class="o">=</span><span class="n">shapes</span><span class="p">)</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">update_base</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">canvas</span><span class="o">.</span><span class="n">view</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;replay-memory-output&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;replay-memory-frames&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;replay-memory-class&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">replay_store_frame</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">class_selected</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">PreventUpdate</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">frames</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">PreventUpdate</span>
+        <span class="n">filtered</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;class_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">class_selected</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">filtered</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;replay-feature-graph&#39;</span><span class="p">,</span> <span class="s1">&#39;figure&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;replay-memory-output&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">replay_on_data_set_graph</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">PreventUpdate</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">filtered</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plot_frame</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/1be5269a14418ee30d9b11b91382c672/watch.py"><code class="xref download docutils literal notranslate"><span class="pre">callbacks/watch.py</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">网页应用的 <code class="docutils literal notranslate"><span class="pre">watch</span></code> 回调。</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">dash.dependencies</span> <span class="kn">import</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Output</span><span class="p">,</span> <span class="n">State</span>
+<span class="kn">from</span> <span class="nn">dash.exceptions</span> <span class="kn">import</span> <span class="n">PreventUpdate</span>
+<span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">callback_context</span>
+
+<span class="kn">from</span> <span class="nn">utils.client</span> <span class="kn">import</span> <span class="n">plot_frame</span><span class="p">,</span> <span class="n">Canvas</span>
+<span class="kn">from</span> <span class="nn">tools.frame</span> <span class="kn">import</span> <span class="n">Shape</span>
+
+<span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">app</span>
+<span class="kn">from</span> <span class="nn">layouts.watch</span> <span class="kn">import</span> <span class="n">stream</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">Output</span><span class="p">(</span><span class="s1">&#39;frame-slider&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span>
+    <span class="n">Output</span><span class="p">(</span><span class="s1">&#39;frame-start&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span>
+    <span class="n">Output</span><span class="p">(</span><span class="s1">&#39;frame-end&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span>
+    <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;frame-slider&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span>
+    <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;frame-start&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span>
+    <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;frame-end&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">slider_value</span><span class="p">,</span> <span class="n">frame_start</span><span class="p">,</span> <span class="n">frame_end</span><span class="p">):</span>
+    <span class="n">ctx</span> <span class="o">=</span> <span class="n">callback_context</span>
+    <span class="n">trigger</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">triggered</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">trigger</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">PreventUpdate</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">trigger_id</span> <span class="o">=</span> <span class="n">trigger</span><span class="p">[</span><span class="s2">&quot;prop_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">trigger_id</span> <span class="o">==</span> <span class="s1">&#39;frame-slider&#39;</span><span class="p">:</span>
+            <span class="n">slider_value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">elif</span> <span class="n">trigger_id</span> <span class="o">==</span> <span class="s1">&#39;frame-start&#39;</span><span class="p">:</span>
+            <span class="n">slider_value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">elif</span> <span class="n">trigger_id</span> <span class="o">==</span> <span class="s1">&#39;frame-end&#39;</span><span class="p">:</span>
+            <span class="n">slider_value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="n">frame_start</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">slider_value</span><span class="p">)</span>
+        <span class="n">frame_end</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">slider_value</span><span class="p">)</span>
+        <span class="n">slider_value</span> <span class="o">=</span> <span class="n">frame_start</span><span class="p">,</span> <span class="n">frame_end</span>
+    <span class="k">return</span> <span class="n">slider_value</span><span class="p">,</span> <span class="n">frame_start</span><span class="p">,</span> <span class="n">frame_end</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;watch-view-graph&#39;</span><span class="p">,</span> <span class="s1">&#39;figure&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;frame-end&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">replay_view_graph_frame</span><span class="p">(</span><span class="n">frame_end</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;更新鸟瞰图&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">PreventUpdate</span>
+    <span class="n">frame</span> <span class="o">=</span> <span class="n">stream</span><span class="p">[</span><span class="n">frame_end</span><span class="p">]</span>
+    <span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">()</span>
+    <span class="n">shapes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Shape</span><span class="p">(</span><span class="o">**</span><span class="n">shape</span><span class="p">)</span> <span class="k">for</span> <span class="n">shape</span> <span class="ow">in</span> <span class="n">frame</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s1">&#39;records&#39;</span><span class="p">)]</span>
+    <span class="n">shapes</span> <span class="o">=</span> <span class="p">[</span><span class="n">canvas</span><span class="o">.</span><span class="n">to_shape</span><span class="p">(</span><span class="o">*</span><span class="n">shape</span><span class="o">.</span><span class="n">view</span><span class="p">)</span> <span class="k">for</span> <span class="n">shape</span> <span class="ow">in</span> <span class="n">shapes</span><span class="p">]</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">shapes</span><span class="o">=</span><span class="n">shapes</span><span class="p">)</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">update_base</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">canvas</span><span class="o">.</span><span class="n">view</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;watch-memory-output&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;frame-start&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;frame-end&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;watch-memory-class&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">store_frame</span><span class="p">(</span><span class="n">frame_start</span><span class="p">,</span> <span class="n">frame_end</span><span class="p">,</span> <span class="n">class_selected</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">frame_start</span> <span class="o">==</span> <span class="n">frame_end</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">PreventUpdate</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">stream</span><span class="p">[</span><span class="n">frame_start</span><span class="p">:</span><span class="n">frame_end</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">filtered</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;class_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">class_selected</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">filtered</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;watch-feature-graph&#39;</span><span class="p">,</span> <span class="s1">&#39;figure&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;watch-memory-output&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">on_data_set_graph</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">PreventUpdate</span>
+    <span class="n">filtered</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plot_frame</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h2>鸟瞰图<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="sphinx-bs container pb-4 full-width docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/6ec0a1d463f10f53cb2e1b710bb6d4ea/view.py"><code class="xref download docutils literal notranslate"><span class="pre">apps/view.py</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">网页应用的鸟瞰图 <code class="docutils literal notranslate"><span class="pre">view</span></code> 回调。</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+
+
+<span class="k">class</span> <span class="nc">CanvasMeta</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_range</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_range</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">210</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_scale</span> <span class="o">=</span> <span class="mi">270</span><span class="o">/</span><span class="mi">15</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fig_height</span> <span class="o">=</span> <span class="mi">750</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+            <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s1">&#39;lightgrey&#39;</span><span class="p">,</span>
+            <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s1">&#39;lightslategrey&#39;</span><span class="p">,</span>
+            <span class="n">font_color</span><span class="o">=</span><span class="s1">&#39;goldenrod&#39;</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">base_shapes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">center_vline</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="s1">&#39;line_width&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                        <span class="s1">&#39;line_dash&#39;</span><span class="p">:</span> <span class="s1">&#39;dash&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;line_color&#39;</span><span class="p">:</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;annotation_text&#39;</span><span class="p">:</span> <span class="s1">&#39;中心线&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;annotation&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;font_size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;font_family&#39;</span><span class="p">:</span> <span class="s1">&#39;宋体&#39;</span><span class="p">},</span>
+                        <span class="s1">&#39;opacity&#39;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">}</span>
+        <span class="n">vline1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                 <span class="s1">&#39;line_width&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                 <span class="s1">&#39;line_dash&#39;</span><span class="p">:</span> <span class="s1">&#39;dash&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;line_color&#39;</span><span class="p">:</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;annotation_text&#39;</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;annotation&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;font_size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;font_family&#39;</span><span class="p">:</span> <span class="s1">&#39;宋体&#39;</span><span class="p">},</span>
+                 <span class="s1">&#39;opacity&#39;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">}</span>
+        <span class="n">vline2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>
+                 <span class="s1">&#39;line_width&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                 <span class="s1">&#39;line_dash&#39;</span><span class="p">:</span> <span class="s1">&#39;dash&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;line_color&#39;</span><span class="p">:</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;annotation_text&#39;</span><span class="p">:</span> <span class="s1">&#39;-3&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;annotation&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;font_size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;font_family&#39;</span><span class="p">:</span> <span class="s1">&#39;宋体&#39;</span><span class="p">},</span>
+                 <span class="s1">&#39;opacity&#39;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">}</span>
+        <span class="n">hline1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                  <span class="s1">&#39;line_width&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                  <span class="s1">&#39;line_dash&#39;</span><span class="p">:</span> <span class="s1">&#39;dash&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;line_color&#39;</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;annotation_text&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;opacity&#39;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">}</span>
+        <span class="n">hline2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+                  <span class="s1">&#39;line_width&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                  <span class="s1">&#39;line_dash&#39;</span><span class="p">:</span> <span class="s1">&#39;dash&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;line_color&#39;</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;annotation_text&#39;</span><span class="p">:</span> <span class="s1">&#39;60&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;opacity&#39;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">}</span>
+        <span class="n">hline3</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span>
+                  <span class="s1">&#39;line_width&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                  <span class="s1">&#39;line_dash&#39;</span><span class="p">:</span> <span class="s1">&#39;dash&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;line_color&#39;</span><span class="p">:</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;annotation_text&#39;</span><span class="p">:</span> <span class="s1">&#39;120&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;opacity&#39;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">}</span>
+        <span class="n">hline4</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">180</span><span class="p">,</span>
+                  <span class="s1">&#39;line_width&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                  <span class="s1">&#39;line_dash&#39;</span><span class="p">:</span> <span class="s1">&#39;dash&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;line_color&#39;</span><span class="p">:</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;annotation_text&#39;</span><span class="p">:</span> <span class="s1">&#39;180&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;opacity&#39;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">}</span>
+        <span class="c1"># 本车</span>
+        <span class="n">car</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;rect&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;xref&#39;</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;yref&#39;</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;x0&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">,</span>
+               <span class="s1">&#39;x1&#39;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span>
+               <span class="s1">&#39;y0&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.5</span><span class="p">,</span>
+               <span class="s1">&#39;y1&#39;</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">,</span>
+               <span class="s1">&#39;fillcolor&#39;</span><span class="p">:</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;opacity&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+               <span class="s1">&#39;line&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;Lightgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}}</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;center_vline&#39;</span><span class="p">:</span> <span class="n">center_vline</span><span class="p">,</span>
+            <span class="s1">&#39;vline1&#39;</span><span class="p">:</span> <span class="n">vline1</span><span class="p">,</span>
+            <span class="s1">&#39;vline2&#39;</span><span class="p">:</span> <span class="n">vline2</span><span class="p">,</span>
+            <span class="s1">&#39;hline1&#39;</span><span class="p">:</span> <span class="n">hline1</span><span class="p">,</span>
+            <span class="s1">&#39;hline2&#39;</span><span class="p">:</span> <span class="n">hline2</span><span class="p">,</span>
+            <span class="s1">&#39;hline3&#39;</span><span class="p">:</span> <span class="n">hline3</span><span class="p">,</span>
+            <span class="s1">&#39;hline4&#39;</span><span class="p">:</span> <span class="n">hline4</span><span class="p">,</span>
+            <span class="s1">&#39;host_vehicle&#39;</span><span class="p">:</span> <span class="n">car</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">update_base</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">base_shapes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_shapes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">add_vline</span><span class="p">(</span><span class="o">**</span><span class="n">base_shapes</span><span class="p">[</span><span class="s1">&#39;center_vline&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">add_vline</span><span class="p">(</span><span class="o">**</span><span class="n">base_shapes</span><span class="p">[</span><span class="s1">&#39;vline1&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">add_vline</span><span class="p">(</span><span class="o">**</span><span class="n">base_shapes</span><span class="p">[</span><span class="s1">&#39;vline2&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">add_hline</span><span class="p">(</span><span class="o">**</span><span class="n">base_shapes</span><span class="p">[</span><span class="s1">&#39;hline1&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">add_hline</span><span class="p">(</span><span class="o">**</span><span class="n">base_shapes</span><span class="p">[</span><span class="s1">&#39;hline2&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">add_hline</span><span class="p">(</span><span class="o">**</span><span class="n">base_shapes</span><span class="p">[</span><span class="s1">&#39;hline3&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">add_hline</span><span class="p">(</span><span class="o">**</span><span class="n">base_shapes</span><span class="p">[</span><span class="s1">&#39;hline4&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">add_shape</span><span class="p">(</span><span class="o">**</span><span class="n">base_shapes</span><span class="p">[</span><span class="s1">&#39;host_vehicle&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">x_range</span><span class="p">,</span>
+                               <span class="n">showline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                               <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                               <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span>
+                               <span class="n">mirror</span><span class="o">=</span><span class="kc">True</span>
+                               <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">y_range</span><span class="p">,</span>
+                               <span class="n">showline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                               <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                               <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span>
+                               <span class="n">mirror</span><span class="o">=</span><span class="kc">True</span>
+                               <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+            <span class="n">margin</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span>
+            <span class="n">height</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_fig_height</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">to_bbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;x0&#39;</span><span class="p">:</span> <span class="n">x</span><span class="o">-</span><span class="n">w</span><span class="p">,</span>
+            <span class="s1">&#39;x1&#39;</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">w</span><span class="p">,</span>
+            <span class="s1">&#39;y0&#39;</span><span class="p">:</span> <span class="n">y</span><span class="o">-</span><span class="n">h</span><span class="p">,</span>
+            <span class="s1">&#39;y1&#39;</span><span class="p">:</span> <span class="n">y</span><span class="o">+</span><span class="n">h</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">to_obj</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_type</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span>
+               <span class="n">fillcolor</span><span class="p">,</span> <span class="n">opacity</span><span class="p">,</span>
+               <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;LightSeaGreen&#39;</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;视觉目标&#39;&#39;&#39;</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="p">({</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">_type</span><span class="p">,</span>
+            <span class="s1">&#39;xref&#39;</span><span class="p">:</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s1">&#39;yref&#39;</span><span class="p">:</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span>
+            <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">to_bbox</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span>
+            <span class="s1">&#39;fillcolor&#39;</span><span class="p">:</span> <span class="n">fillcolor</span><span class="p">,</span>
+            <span class="s1">&#39;opacity&#39;</span><span class="p">:</span> <span class="n">opacity</span><span class="p">,</span>
+            <span class="s1">&#39;line&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="n">line_color</span><span class="p">,</span>
+                <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+
+            <span class="p">}</span>
+        <span class="p">})</span>
+        <span class="k">return</span> <span class="n">obj</span>
+
+    <span class="k">def</span> <span class="nf">to_visual_obj</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;视觉目标&#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_obj</span><span class="p">(</span><span class="s1">&#39;circle&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mf">0.27</span><span class="p">,</span> <span class="mf">2.8</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">to_radar_obj</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;视觉目标&#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_obj</span><span class="p">(</span><span class="s1">&#39;rect&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">to_fusion_obj</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;融合目标&#39;&#39;&#39;</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_obj</span><span class="p">(</span><span class="s1">&#39;rect&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mf">0.36</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">obj</span>
+
+    <span class="k">def</span> <span class="nf">to_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_type</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">_type</span> <span class="o">==</span> <span class="s1">&#39;visual&#39;</span><span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_visual_obj</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">_type</span> <span class="o">==</span> <span class="s1">&#39;radar&#39;</span><span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_radar_obj</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">_type</span> <span class="o">==</span> <span class="s1">&#39;fusion&#39;</span><span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_fusion_obj</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">return</span> <span class="n">obj</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h2>工具<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="sphinx-bs container pb-4 full-width docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-12 px-2 py-2 docutils">
+<div class="card w-100 w3-pale-red w3-card docutils">
+<div class="card-header w3-pale-blue w3-card-4 docutils">
+<p class="card-text"><a class="reference download internal" download="" href="../../_downloads/94c41782a105d151d9298c55a8c31b19/frame.py"><code class="xref download docutils literal notranslate"><span class="pre">tools/frame.py</span></code></a></p>
+</div>
+<div class="card-body text-justify w3-padding docutils">
+<p class="card-text">网页应用的鸟瞰图 <code class="docutils literal notranslate"><span class="pre">view</span></code> 回调。</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">asdict</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Shape</span><span class="p">:</span>
+    <span class="n">frame_id</span><span class="p">:</span> <span class="nb">int</span> <span class="c1"># 帧号</span>
+    <span class="n">track_id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">origin</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># 目标物来源，取值 &#39;visual&#39;, &#39;radar&#39;, &#39;fusion&#39;</span>
+    <span class="n">class_name</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># ACC主目标，AEB主目标，CIPV目标，MCP目标，other</span>
+    <span class="n">x</span><span class="p">:</span> <span class="nb">float</span>  <span class="c1"># 横向距离</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">float</span>  <span class="c1"># 纵向距离</span>
+    <span class="n">v_x</span><span class="p">:</span> <span class="nb">float</span>  <span class="c1"># 横向速度</span>
+    <span class="n">v_y</span><span class="p">:</span> <span class="nb">float</span>  <span class="c1"># 纵向速度</span>
+    <span class="n">a_x</span><span class="p">:</span> <span class="nb">float</span>  <span class="c1"># 横向加速度</span>
+    <span class="n">a_y</span><span class="p">:</span> <span class="nb">float</span>  <span class="c1"># 纵向加速度</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span> \
+            <span class="sa">f</span><span class="s1">&#39;(track_id=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">track_id</span><span class="si">}</span><span class="s1">, class_name=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">class_name</span><span class="si">}</span><span class="s1">, x=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s1">, y=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s1">,&#39;</span> \
+            <span class="sa">f</span><span class="s1">&#39;v_x=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">v_x</span><span class="si">}</span><span class="s1">, v_y=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">v_y</span><span class="si">}</span><span class="s1">, &#39;</span> \
+            <span class="sa">f</span><span class="s1">&#39;a_x=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">a_x</span><span class="si">}</span><span class="s1">, a_y=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">a_y</span><span class="si">}</span><span class="s1">)&#39;</span>
+        <span class="k">return</span> <span class="n">obj</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">prop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span>
+             <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span>
+             <span class="s1">&#39;v_x&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_x</span><span class="p">,</span>
+             <span class="s1">&#39;v_y&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_y</span><span class="p">,</span>
+             <span class="s1">&#39;a_x&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">a_x</span><span class="p">,</span>
+             <span class="s1">&#39;a_y&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">a_y</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">v</span>
+
+    <span class="k">def</span> <span class="nf">asdict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">asdict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Frame</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shapes</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span> <span class="o">=</span> <span class="n">shapes</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">bunch</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_bunch</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">shape</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span><span class="p">:</span>
+            <span class="n">class_name</span> <span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">class_name</span>
+            <span class="n">_bunch</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">class_name</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_bunch</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -502,16 +1381,16 @@ utils/</label><div class="tabbed-content docutils">
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "ai"
+            mode: "python"
         },
         kernelOptions: {
-            kernelName: "ai",
+            kernelName: "python3",
             path: "./docs/principle"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'ai'</script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               

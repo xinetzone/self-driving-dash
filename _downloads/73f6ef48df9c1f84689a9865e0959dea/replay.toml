@@ -1,0 +1,4 @@
+save_path = "../out3.h5"
+class_names = [ "AEB", "CIPV", "ACC", "MCP",]
+columns = [ "frame_id", "track_id", "origin", "class_name", "x", "y", "v_x", "v_y", "a_x", "a_y",]
+title = "APG UI"

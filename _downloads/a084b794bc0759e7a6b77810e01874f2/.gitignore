@@ -137,3 +137,5 @@ cache-directory/
 
 # draft
 draft/
+
+*.docx
