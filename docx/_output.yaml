@@ -1,0 +1,4 @@
+output:
+  word_document:
+    # reference_doc: demo.docx
+    highlight: "tango"
