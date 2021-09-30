@@ -14,7 +14,7 @@ jupyter-dash
 plotly
 # pyorbital
 gunicorn
-# dash-xinet -i https://pypi.org/simple/
+dash-xinet -i https://pypi.org/simple/
 sanstyle -i https://pypi.org/simple/ 
 # Flask-Caching
 # redis

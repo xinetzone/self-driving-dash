@@ -11,12 +11,6 @@ parts:
     sections:
     - glob: docs/basics/**
 
-- caption: 主题
-  chapters:
-  - file: docs/topics/index
-    sections:
-    - glob: docs/topics/**
-
 - caption: 原理
   chapters:
   - file: docs/principle/index
