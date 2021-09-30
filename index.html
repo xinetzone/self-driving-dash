@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>上善若水</title>
+    <title>无人驾驶 Dash</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -70,7 +70,7 @@ var addUtterances = () => {
     script.src = "https://utteranc.es/client.js";
     script.async = "async";
 
-    script.setAttribute("repo", "xinetzone/sanstyle-starter");
+    script.setAttribute("repo", "xinetzone/self-driving-dash");
     script.setAttribute("issue-term", "pathname");
     script.setAttribute("theme", "github-light");
     script.setAttribute("label", "💬 comment");
@@ -94,11 +94,11 @@ commentsRunWhenDOMLoaded(addUtterances);
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://xinetzone.github.io/sanstyle-starter/index.html" />
+    <link rel="canonical" href="https://xinetzone.github.io/self-driving-dash/index.html" />
     <link rel="shortcut icon" href="_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Sanstyle Strater" href="README.html" />
+    <link rel="next" title="无人驾驶" href="README.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -138,7 +138,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="README.html">
-   Sanstyle Strater
+   无人驾驶
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -152,8 +152,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="docs/start/build-ai.html">
-     从零开始搭建 AI 环境
+    <a class="reference internal" href="docs/start/00_how.html">
+     如何启动项目
     </a>
    </li>
   </ul>
@@ -178,30 +178,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
-  主题
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="docs/topics/index.html">
-   主题1
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="docs/topics/topic.html">
-     某个主题
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-<p class="caption" role="heading">
- <span class="caption-text">
   原理
  </span>
 </p>
@@ -210,15 +186,15 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="docs/principle/index.html">
    解释
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="docs/principle/topic.html">
-     高级教程
+    <a class="reference internal" href="docs/principle/00_architecture.html">
+     项目剖析
     </a>
    </li>
   </ul>
@@ -234,12 +210,17 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="docs/about/index.html">
    关于
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docs/about/architecture.html">
+     项目架构
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="docs/about/zreferences.html">
      参考文献
@@ -261,8 +242,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="docs/other/index.html">
    外部资源
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -354,11 +335,11 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/xinetzone/sanstyle-starter"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/xinetzone/self-driving-dash"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/xinetzone/sanstyle-starter/issues/new?title=Issue%20on%20page%20%2Findex.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xinetzone/self-driving-dash/issues/new?title=Issue%20on%20page%20%2Findex.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -379,24 +360,6 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   笔记
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   他山之石
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -405,108 +368,31 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>上善若水<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="dash">
+<h1>无人驾驶 Dash<a class="headerlink" href="#dash" title="永久链接至标题">¶</a></h1>
 <div class="sphinx-bs container pb-4 full-width text-center docutils">
 <div class="row docutils">
-<div class="d-flex col-lg-4 px-2 py-2 w3-round-large docutils">
-<div class="card w-100 w3-pale-red w3-card docutils">
-<div class="card-header w3-pale-yellow w3-wide w3-card-4 docutils">
-<p class="card-text"><a class="reference external" href="https://xinetzone.github.io/ai-world/">AI World</a></p>
-</div>
-<div class="card-body text-justify w3-padding docutils">
-<p class="card-text">AI World!</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<section id="id2">
-<h2>笔记<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<div class="sphinx-bs container pb-4 full-width text-center docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-4 px-2 py-2 docutils">
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
 <div class="card w-100 w3-pale-red w3-card docutils">
 <div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
-<p class="card-text"><a class="reference external" href="https://xinetzone.github.io/write/">写作</a></p>
+<p class="card-text">目标</p>
 </div>
 <div class="card-body text-justify w3-padding docutils">
-<p class="card-text">与写作相关的一切。</p>
+<p class="card-text">构建一个通用的网页版无人驾驶工具包。</p>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-4 px-2 py-2 docutils">
-<div class="card w-100 w3-pale-red w3-card docutils">
-<div class="card-header w3-aqua w3-wide w3-card-4 docutils">
-<p class="card-text"><a class="reference external" href="https://xinetzone.github.io/study/">学习</a></p>
-</div>
-<div class="card-body text-justify w3-padding docutils">
-<p class="card-text">学习相关。</p>
-</div>
-</div>
-</div>
-<div class="d-flex col-lg-4 px-2 py-2 docutils">
-<div class="card w-100 w3-pale-red w3-card docutils">
-<div class="card-header w3-light-grey w3-wide w3-card-4 docutils">
-<p class="card-text"><a class="reference external" href="https://xinetzone.github.io/tips/">tips</a></p>
-</div>
-<div class="card-body text-justify w3-padding docutils">
-<p class="card-text">技巧。</p>
-</div>
-</div>
-</div>
-<div class="d-flex col-lg-4 px-2 py-2 docutils">
-<div class="card w-100 w3-pale-red w3-card docutils">
-<div class="card-header w3-light-gray w3-wide w3-card-4 docutils">
-<p class="card-text"><a class="reference external" href="https://xinetzone.github.io/daily-notes/">日报</a></p>
-</div>
-<div class="card-body text-justify w3-padding docutils">
-<p class="card-text">记录每一天。</p>
-</div>
-</div>
-</div>
-<div class="d-flex col-lg-4 px-2 py-2 docutils">
-<div class="card w-100 w3-pale-red w3-card docutils">
-<div class="card-header w3-light-red w3-wide w3-card-4 docutils">
-<p class="card-text"><a class="reference external" href="https://xinetzone.github.io/cbook/">cbook</a></p>
-</div>
-<div class="card-body text-justify w3-padding docutils">
-<p class="card-text">C/C++ 学习笔记。</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="id3">
-<h2>他山之石<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>收录一些优质的资源，并进行二次整合。</p>
-<div class="sphinx-bs container pb-4 full-width text-center docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-4 px-2 py-2 docutils">
-<div class="card w-100 w3-pale-red w3-card docutils">
-<div class="card-header w3-pale-green w3-wide w3-card-4 docutils">
-<p class="card-text"><a class="reference external" href="https://xinetzone.github.io/wiki/">Wiki</a></p>
-</div>
-<div class="card-body text-justify w3-padding docutils">
-<p class="card-text">百科。</p>
-</div>
-</div>
-</div>
-<div class="d-flex col-lg-4 px-2 py-2 docutils">
+<div class="d-flex col-lg-6 px-2 py-2 docutils">
 <div class="card w-100 w3-pale-red w3-card docutils">
 <div class="card-header w3-pale-blue w3-wide w3-card-4 docutils">
-<p class="card-text"><a class="reference external" href="https://xinetzone.github.io/crack-book/">crack-book</a></p>
+<p class="card-text">架构基础</p>
 </div>
 <div class="card-body text-justify w3-padding docutils">
-<p class="card-text">裂缝检测。</p>
+<p class="card-text">利用 CSS、JavaScript、HTML 以及 Python 搭建通用平台。</p>
 </div>
 </div>
 </div>
 </div>
-</div>
-</section>
-<div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -520,7 +406,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     {
         requestKernel: true,
         binderOptions: {
-            repo: "xinetzone/sanstyle-starter",
+            repo: "xinetzone/self-driving-dash",
             ref: "main",
         },
         codeMirrorConfig: {
@@ -549,7 +435,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <a class="right-next" href="README.html" title="下一页 页">
             <div class="prevnext-info">
                 <p class="prevnext-label">下一页</p>
-                <p class="prevnext-title">Sanstyle Strater</p>
+                <p class="prevnext-title">无人驾驶</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

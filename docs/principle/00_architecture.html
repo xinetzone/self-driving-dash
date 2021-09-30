@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>主题1</title>
+    <title>项目剖析</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -70,7 +70,7 @@ var addUtterances = () => {
     script.src = "https://utteranc.es/client.js";
     script.async = "async";
 
-    script.setAttribute("repo", "xinetzone/sanstyle-starter");
+    script.setAttribute("repo", "xinetzone/self-driving-dash");
     script.setAttribute("issue-term", "pathname");
     script.setAttribute("theme", "github-light");
     script.setAttribute("label", "💬 comment");
@@ -94,12 +94,12 @@ commentsRunWhenDOMLoaded(addUtterances);
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://xinetzone.github.io/sanstyle-starter/docs/topics/index.html" />
+    <link rel="canonical" href="https://xinetzone.github.io/self-driving-dash/docs/principle/00_architecture.html" />
     <link rel="shortcut icon" href="../../_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="某个主题" href="topic.html" />
-    <link rel="prev" title="基础" href="../basics/topic.html" />
+    <link rel="next" title="关于" href="../about/index.html" />
+    <link rel="prev" title="解释" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -139,7 +139,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../README.html">
-   Sanstyle Strater
+   无人驾驶
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -153,8 +153,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../start/build-ai.html">
-     从零开始搭建 AI 环境
+    <a class="reference internal" href="../start/00_how.html">
+     如何启动项目
     </a>
    </li>
   </ul>
@@ -179,47 +179,23 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
-  主题
+  原理
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
-   主题1
+  <a class="reference internal" href="index.html">
+   解释
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="topic.html">
-     某个主题
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-<p class="caption" role="heading">
- <span class="caption-text">
-  原理
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../principle/index.html">
-   解释
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../principle/topic.html">
-     高级教程
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     项目剖析
     </a>
    </li>
   </ul>
@@ -235,12 +211,17 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="../about/index.html">
    关于
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../about/architecture.html">
+     项目架构
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../about/zreferences.html">
      参考文献
@@ -262,8 +243,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="../other/index.html">
    外部资源
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -337,9 +318,12 @@ commentsRunWhenDOMLoaded(addUtterances);
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
+        <a class="dropdown-buttons"
+            href="../../_sources/docs/principle/00_architecture.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/topics/index.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/docs/principle/00_architecture.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -355,11 +339,11 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/xinetzone/sanstyle-starter"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/xinetzone/self-driving-dash"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/xinetzone/sanstyle-starter/issues/new?title=Issue%20on%20page%20%2Fdocs/topics/index.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xinetzone/self-driving-dash/issues/new?title=Issue%20on%20page%20%2Fdocs/principle/00_architecture.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -375,6 +359,26 @@ commentsRunWhenDOMLoaded(addUtterances);
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/xinetzone/self-driving-dash/main?urlpath=tree/./docs/principle/00_architecture.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -389,31 +393,125 @@ commentsRunWhenDOMLoaded(addUtterances);
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>主题1<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<p>告诉读者如何做某事的简短指南。假定读者拥有一些背景知识（通常，读者已经过阅读教程）。读者专注于“做事”而不是长篇大论的解释。How To 指南构成了大部分的文档，并且针对不同的主题分为不同的部分。</p>
-<div class="toctree-wrapper compound">
+<h1>项目剖析<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+源码的细节。<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="tabbed-set docutils">
+<input checked="checked" id="9a1b46f3-ecc1-45f2-bbe3-3fd8763e8e52" name="5ae519f3-09c7-4cba-b29d-fb5ab9463ac5" type="radio">
+</input><label class="tabbed-label" for="9a1b46f3-ecc1-45f2-bbe3-3fd8763e8e52">
+app .py</label><div class="tabbed-content docutils">
+<p class="card-text">项目中的 Dash 应用。</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dash_xinet.server</span> <span class="kn">import</span> <span class="n">create_app</span>
+
+<span class="n">external_stylesheets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;https://codepen.io/chriddyp/pen/bWLwgP.css&#39;</span><span class="p">]</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span>
+                 <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Sanstyle Dash&#39;</span><span class="p">,</span>
+                 <span class="n">external_stylesheets</span><span class="o">=</span><span class="n">external_stylesheets</span><span class="p">)</span>
+</pre></div>
 </div>
-</section>
+</div>
+<input id="f34e1c41-d8fd-4787-93e3-503ebe57e9ad" name="5ae519f3-09c7-4cba-b29d-fb5ab9463ac5" type="radio">
+</input><label class="tabbed-label" for="f34e1c41-d8fd-4787-93e3-503ebe57e9ad">
+run .py</label><div class="tabbed-content docutils">
+<p class="card-text">项目中的 Dash 应用主程序。</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">dcc</span><span class="p">,</span> <span class="n">html</span>
+<span class="kn">from</span> <span class="nn">dash.dependencies</span> <span class="kn">import</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Output</span>
+
+<span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">app</span>
+<span class="kn">from</span> <span class="nn">layouts</span> <span class="kn">import</span> <span class="n">index</span><span class="p">,</span> <span class="n">record</span><span class="p">,</span> <span class="n">watch</span><span class="p">,</span> <span class="n">replay</span><span class="p">,</span> <span class="n">about</span>
+<span class="c1"># from examples.run import callback_example</span>
+<span class="kn">from</span> <span class="nn">callbacks.record</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">callbacks.watch</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">callbacks.replay</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Article</span><span class="p">([</span>
+    <span class="n">dcc</span><span class="o">.</span><span class="n">Location</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="n">refresh</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>  <span class="c1"># 定位地址栏</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Section</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;page-content&#39;</span><span class="p">),</span>  <span class="c1"># 页面布局</span>
+<span class="p">])</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;page-content&#39;</span><span class="p">,</span> <span class="s1">&#39;children&#39;</span><span class="p">),</span>
+              <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;pathname&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">display_page</span><span class="p">(</span><span class="n">pathname</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pathname</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">index</span><span class="o">.</span><span class="n">layout</span>
+    <span class="k">if</span> <span class="n">pathname</span> <span class="o">==</span> <span class="s1">&#39;/record&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">record</span><span class="o">.</span><span class="n">layout</span>
+    <span class="k">if</span> <span class="n">pathname</span> <span class="o">==</span> <span class="s1">&#39;/watch&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">watch</span><span class="o">.</span><span class="n">layout</span>
+    <span class="k">if</span> <span class="n">pathname</span> <span class="o">==</span> <span class="s1">&#39;/replay&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">replay</span><span class="o">.</span><span class="n">layout</span>
+    <span class="k">if</span> <span class="n">pathname</span> <span class="o">==</span> <span class="s1">&#39;/about&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">about</span><span class="o">.</span><span class="n">layout</span>
+    <span class="c1"># elif pathname.startswith(&#39;/examples/&#39;):</span>
+    <span class="c1">#     return callback_example(pathname)</span>
+    <span class="c1"># else:</span>
+    <span class="c1">#     return &#39;404&#39;</span>
+
+
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">suppress_callback_exceptions</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># 用于支持多页应用</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">asyncio</span>
+    <span class="kn">from</span> <span class="nn">dash_xinet.server</span> <span class="kn">import</span> <span class="n">run_server</span>
+
+    <span class="n">port</span> <span class="o">=</span> <span class="mi">7777</span>
+    <span class="c1"># app.run_server(debug=True, port=5555, threaded=True)</span>
+    <span class="c1"># app.run_server(app, debug=True, port=5555, threaded=True)</span>
+    <span class="n">run</span> <span class="o">=</span> <span class="n">run_server</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">layout</span><span class="p">,</span>
+                     <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span>
+                     <span class="p">)</span>
+    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">run</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">layout</span>
+    <span class="n">server</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">server</span>  <span class="c1"># 用于 Dash 服务器部署</span>
+</pre></div>
+</div>
+</div>
+<input id="f85fff5a-123d-47be-a1b5-020043c3a972" name="5ae519f3-09c7-4cba-b29d-fb5ab9463ac5" type="radio">
+</input><label class="tabbed-label" for="f85fff5a-123d-47be-a1b5-020043c3a972">
+layouts/</label><div class="tabbed-content docutils">
+<p class="card-text">项目中的 Dash 应用的多页布局。</p>
+</div>
+<input id="13bccab8-b815-4ae9-99c1-6ab8a505dbc9" name="5ae519f3-09c7-4cba-b29d-fb5ab9463ac5" type="radio">
+</input><label class="tabbed-label" for="13bccab8-b815-4ae9-99c1-6ab8a505dbc9">
+apps/</label><div class="tabbed-content docutils">
+<p class="card-text">项目中的 Dash 应用的多页应用。</p>
+</div>
+<input id="5d992e40-aab0-457a-8fda-8df43dd98c30" name="5ae519f3-09c7-4cba-b29d-fb5ab9463ac5" type="radio">
+</input><label class="tabbed-label" for="5d992e40-aab0-457a-8fda-8df43dd98c30">
+utils/</label><div class="tabbed-content docutils">
+<p class="card-text">项目中的 Dash 应用的工具，包括可复用组件。</p>
+</div>
+</div>
+</div>
+</details></section>
 
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
-            repo: "xinetzone/sanstyle-starter",
+            repo: "xinetzone/self-driving-dash",
             ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "ai"
         },
         kernelOptions: {
-            kernelName: "python3",
-            path: "./docs/topics"
+            kernelName: "ai",
+            path: "./docs/principle"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ai'</script>
 
               </div>
               
@@ -425,19 +523,19 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../basics/topic.html" title="上一页 页">
+        <a class="left-prev" href="index.html" title="上一页 页">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">上一页</p>
-                <p class="prevnext-title">基础</p>
+                <p class="prevnext-title">解释</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="topic.html" title="下一页 页">
+        <a class="right-next" href="../about/index.html" title="下一页 页">
             <div class="prevnext-info">
                 <p class="prevnext-label">下一页</p>
-                <p class="prevnext-title">某个主题</p>
+                <p class="prevnext-title">关于</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
