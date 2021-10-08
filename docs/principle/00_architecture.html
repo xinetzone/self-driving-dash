@@ -667,17 +667,26 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="kn">from</span> <span class="nn">utils.toml</span> <span class="kn">import</span> <span class="n">load_option</span>
 <span class="kn">from</span> <span class="nn">utils.stream</span> <span class="kn">import</span> <span class="n">Stream</span>
 <span class="kn">from</span> <span class="nn">utils.graph</span> <span class="kn">import</span> <span class="n">create_graph</span>
-<span class="kn">from</span> <span class="nn">utils.update</span> <span class="kn">import</span> <span class="n">update_frame_layout</span>
+<span class="c1"># from utils.update import update_frame_layout</span>
 <span class="c1"># 数据</span>
 <span class="n">layout_options</span> <span class="o">=</span> <span class="n">load_option</span><span class="p">(</span><span class="s1">&#39;options/replay.toml&#39;</span><span class="p">)</span>
 
 <span class="n">stream</span> <span class="o">=</span> <span class="n">Stream</span><span class="p">(</span><span class="n">layout_options</span><span class="o">.</span><span class="n">save_path</span><span class="p">)</span>
 
-<span class="n">frame_section</span> <span class="o">=</span> <span class="n">update_frame_layout</span><span class="p">(</span><span class="s1">&#39;replay-frame-slider&#39;</span><span class="p">,</span>
-                                    <span class="s1">&#39;replay-frame-start&#39;</span><span class="p">,</span>
-                                    <span class="s1">&#39;replay-frame-end&#39;</span><span class="p">,</span>
-                                    <span class="s1">&#39;replay-frame-run&#39;</span><span class="p">,</span>
-                                    <span class="s1">&#39;replay-frame-stop&#39;</span><span class="p">,</span> <span class="n">stream</span><span class="p">)</span>
+<span class="n">frame_section</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+        <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+                  <span class="n">dcc</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;replay-frame-start&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                            <span class="nb">min</span><span class="o">=</span><span class="n">stream</span><span class="o">.</span><span class="n">min_id</span><span class="p">,</span>
+                            <span class="nb">max</span><span class="o">=</span><span class="n">stream</span><span class="o">.</span><span class="n">max_id</span><span class="p">,</span>
+                            <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;number&quot;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s1">&#39;w3-col m1&#39;</span><span class="p">),</span>
+                  <span class="n">dcc</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;replay-frame-end&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                            <span class="nb">min</span><span class="o">=</span><span class="n">stream</span><span class="o">.</span><span class="n">min_id</span><span class="p">,</span>
+                            <span class="nb">max</span><span class="o">=</span><span class="n">stream</span><span class="o">.</span><span class="n">max_id</span><span class="p">,</span>
+                            <span class="n">readOnly</span><span class="o">=</span><span class="s1">&#39;readonly&#39;</span><span class="p">,</span>
+                            <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;number&quot;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s1">&#39;w3-col m1&#39;</span><span class="p">)],</span>
+                 <span class="n">className</span><span class="o">=</span><span class="s1">&#39;w3-row w3-pale-red&#39;</span><span class="p">)</span>
+    <span class="p">])</span>
+
 <span class="c1"># 布局</span>
 <span class="n">header</span> <span class="o">=</span> <span class="n">page_header</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">layout_options</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
 
