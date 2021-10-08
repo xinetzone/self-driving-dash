@@ -112,7 +112,18 @@ h1 {
 
 ## 工具
 
-网页应用的鸟瞰图的 `shape` 框架。
+- 网页应用的鸟瞰图的 `shape` 框架。
 
 @import "../tools/frame.py"
 
+- 定义障碍物枚举类：
+
+@import "../tools/obstacle/info.py"
+
+- 定义障碍物 INFO：
+
+@import "../tools/obstacle/loader.py"
+
+- 为了方便使用，提供仿真环境：
+
+@import "../tools/obstacle/simulate.py"

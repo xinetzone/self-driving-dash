@@ -12,7 +12,8 @@ def update_frame_layout(frame_slider, frame_start, frame_end, frame_run, frame_s
                 marks=stream.marks,
                 value=[0, 0], className='w3-col m8 w3-padding'),
             html.Button('运行', id=frame_run, className='w3-button w3-aqua'),
-            html.Button('终止', id=frame_stop, className='w3-button w3-aqua'), ],
+            html.Button('终止', id=frame_stop, className='w3-button w3-aqua'), 
+            ],
             className='w3-row w3-gray'
         ),
         html.Div([html.Label('frame: ', htmlFor=frame_slider, className='w3-col m1'),

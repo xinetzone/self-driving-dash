@@ -4,17 +4,26 @@ from utils.nav import page_header
 from utils.toml import load_option
 from utils.stream import Stream
 from utils.graph import create_graph
-from utils.update import update_frame_layout
+# from utils.update import update_frame_layout
 # 数据
 layout_options = load_option('options/replay.toml')
 
 stream = Stream(layout_options.save_path)
 
-frame_section = update_frame_layout('replay-frame-slider',
-                                    'replay-frame-start',
-                                    'replay-frame-end',
-                                    'replay-frame-run',
-                                    'replay-frame-stop', stream)
+frame_section = html.Div([
+        html.Div([
+                  dcc.Input(id='replay-frame-start', value=0,
+                            min=stream.min_id,
+                            max=stream.max_id,
+                            type="number", className='w3-col m1'),
+                  dcc.Input(id='replay-frame-end', value=0,
+                            min=stream.min_id,
+                            max=stream.max_id,
+                            readOnly='readonly',
+                            type="number", className='w3-col m1')],
+                 className='w3-row w3-pale-red')
+    ])
+
 # 布局
 header = page_header(title=layout_options.title)
 
