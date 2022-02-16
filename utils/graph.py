@@ -12,6 +12,5 @@ def create_graph(view_graph, feature_graph, memory_class, layout_options):
                                          value='ACC'),
                             dcc.Graph(id=feature_graph, className='w3-row')],
                            className='w3-col m9 l9 s9')
-    graph = html.Article([left_graph, right_graph],
+    return html.Article([left_graph, right_graph],
                          className='w3-row')
-    return graph

@@ -65,7 +65,7 @@ def update_view_graph_frame(frame):
               Input('memory-class', 'value'))
 def store_frame(frames, class_selected):
     df = pd.DataFrame.from_records(frames)
-    if frames == None:
+    if frames is None:
         raise PreventUpdate
     filtered = df[df['class_name'] == class_selected]
     return filtered.to_dict('records')
@@ -85,5 +85,4 @@ def on_data_set_graph(data):
     if data is None:
         raise PreventUpdate
     filtered = pd.DataFrame.from_records(data)
-    fig = plot_frame(filtered)
-    return fig
+    return plot_frame(filtered)

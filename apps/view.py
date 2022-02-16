@@ -123,7 +123,7 @@ class CanvasMeta:
                fillcolor, opacity,
                line_color='LightSeaGreen'):
         '''视觉目标'''
-        obj = ({
+        return ({
             'type': _type,
             'xref': "x", 'yref': "y",
             **self.to_bbox(x, y, w, h),
@@ -135,7 +135,6 @@ class CanvasMeta:
 
             }
         })
-        return obj
 
     def to_visual_obj(self, x, y):
         '''视觉目标'''
@@ -147,16 +146,14 @@ class CanvasMeta:
 
     def to_fusion_obj(self, x, y):
         '''融合目标'''
-        obj = self.to_obj('rect', x, y, 0.36, 3.8, 'yellow', 0.4, 'red')
-        return obj
+        return self.to_obj('rect', x, y, 0.36, 3.8, 'yellow', 0.4, 'red')
 
     def to_shape(self, _type, x, y):
         if _type == 'visual':
-            obj = self.to_visual_obj(x, y)
+            return self.to_visual_obj(x, y)
         elif _type == 'radar':
-            obj = self.to_radar_obj(x, y)
+            return self.to_radar_obj(x, y)
         elif _type == 'fusion':
-            obj = self.to_fusion_obj(x, y)
+            return self.to_fusion_obj(x, y)
         else:
-            obj = {}
-        return obj
+            return {}

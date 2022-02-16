@@ -29,8 +29,7 @@ def page_nav():
                          link_id='about-link')
 
     ul = html.Ul([home, record, replay, watch, about], className='w3-padding-small')
-    nav = html.Nav(ul, className='w3-pale-blue w3-padding-small w3-bottombar')
-    return nav
+    return html.Nav(ul, className='w3-pale-blue w3-padding-small w3-bottombar')
 
 
 def page_header(title='Sanstyle Dash'):

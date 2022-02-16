@@ -64,12 +64,11 @@ def replay_view_graph_frame(frame):
 def replay_store_frame(frames, class_selected):
     if len(stream)==0:
         raise PreventUpdate
-    else:
-        df = pd.DataFrame.from_records(frames)
-        if frames == None:
-            raise PreventUpdate
-        filtered = df[df['class_name'] == class_selected]
-        return filtered.to_dict('records')
+    df = pd.DataFrame.from_records(frames)
+    if frames is None:
+        raise PreventUpdate
+    filtered = df[df['class_name'] == class_selected]
+    return filtered.to_dict('records')
 
 
 @app.callback(Output('replay-feature-graph', 'figure'),
@@ -77,7 +76,5 @@ def replay_store_frame(frames, class_selected):
 def replay_on_data_set_graph(data):
     if data is None:
         raise PreventUpdate
-    else:
-        filtered = pd.DataFrame.from_records(data)
-        fig = plot_frame(filtered)
-        return fig
+    filtered = pd.DataFrame.from_records(data)
+    return plot_frame(filtered)

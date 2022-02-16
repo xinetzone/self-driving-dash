@@ -20,10 +20,7 @@ from layouts.watch import stream
 def callback(slider_value, frame_start, frame_end):
     ctx = callback_context
     trigger = ctx.triggered[0]
-    value = trigger['value']
-    if not value:
-        raise PreventUpdate
-    else:
+    if value := trigger['value']:
         trigger_id = trigger["prop_id"].split(".")[0]
         if trigger_id == 'frame-slider':
             slider_value = value
@@ -34,6 +31,8 @@ def callback(slider_value, frame_start, frame_end):
         frame_start = min(slider_value)
         frame_end = max(slider_value)
         slider_value = frame_start, frame_end
+    else:
+        raise PreventUpdate
     return slider_value, frame_start, frame_end
 
 
@@ -69,5 +68,4 @@ def on_data_set_graph(data):
     if data is None or len(stream)==0:
         raise PreventUpdate
     filtered = pd.DataFrame.from_records(data)
-    fig = plot_frame(filtered)
-    return fig
+    return plot_frame(filtered)

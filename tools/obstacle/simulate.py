@@ -76,7 +76,7 @@ class ObstacleInfo:
 
 
 def obstacle_simulate():
-    d = {
+    return {
         'obstacle_ID': choice(range(255)),  # 障碍物ID [0, 255]
         'obstacle_length': choice(range(256))/10.,  # 目标物长度，单位：m [0, 25.6]
         'obstacle_width': choice(range(1024))/100.,  # 宽度，单位：m [0, 10.24]
@@ -131,4 +131,3 @@ def obstacle_simulate():
         'obstacle_blinker_info': shuffle_choice(ObstacleBlinkerInfo),
         'obstacle_brake_lights': shuffle_choice(ObstacleBrakeLights)  # 车辆刹车灯信息
     }
-    return d

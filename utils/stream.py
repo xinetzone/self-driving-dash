@@ -7,7 +7,7 @@ class Stream:
     def __init__(self, path):
         self.path = path
         self.frame_id_list = self._frame_id_list()
-        self.frame_dict = {k:frame_id for k, frame_id in enumerate(self.frame_id_list)}
+        self.frame_dict = dict(enumerate(self.frame_id_list))
 
     def _frame_id_list(self):
         if not Path(self.path).exists():
@@ -29,30 +29,23 @@ class Stream:
     def __getitem__(self, frame_id):
         if len(self) == 0:
             h = 'null'
+        elif frame_id in self.frame_id_list:
+            h = self.to_pandas(frame_id)
+        elif isinstance(frame_id, slice):
+            h = [self.to_pandas(ID)
+                 for ID in range(*frame_id.indices(len(self)))]
+            h = pd.concat(h)
         else:
-            if frame_id in self.frame_id_list:
-                h = self.to_pandas(frame_id)
-            elif isinstance(frame_id, slice):
-                h = [self.to_pandas(ID)
-                     for ID in range(*frame_id.indices(len(self)))]
-                h = pd.concat(h)
-            else:
-                h = 'unreal'
+            h = 'unreal'
         return h
 
     @property
     def min_id(self):
-        if len(self) == 0:
-            return 0
-        else:
-            return min(self.frame_id_list)
+        return 0 if len(self) == 0 else min(self.frame_id_list)
 
     @property
     def max_id(self):
-        if len(self) == 0:
-            return 0
-        else:
-            return len(self)
+        return 0 if len(self) == 0 else len(self)
     
     @property
     def marks(self):

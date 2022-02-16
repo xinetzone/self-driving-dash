@@ -40,12 +40,12 @@ class Canvas(CanvasMeta):
 def simulate_shape(frame_id, track_id, choice_class):
     from random import choice
     choice_origin = choice(['visual', 'fusion', 'radar'])
-    choice_y = choice(range(0, 100, 1))
+    choice_y = choice(range(100))
     choice_x = choice(range(-35, 35, 5))/10
     choice_vx = choice(range(0, 30, 5))/100
-    choice_vy = choice(range(0, 100, 1))/10
+    choice_vy = choice(range(100)) / 10
     choice_ax = choice(range(0, 30, 5))/100
-    choice_ay = choice(range(0, 100, 1))/10
+    choice_ay = choice(range(100)) / 10
     return Shape(frame_id, track_id, choice_origin, choice_class,
                  choice_x, choice_y,
                  choice_vx, choice_vy,
@@ -53,7 +53,6 @@ def simulate_shape(frame_id, track_id, choice_class):
 
 
 def frame2pandas(frame):
-    df = pd.DataFrame.from_dict(frame)
     # df.index = df['id']
     # df = df.iloc[:, 1:]
-    return df
+    return pd.DataFrame.from_dict(frame)
